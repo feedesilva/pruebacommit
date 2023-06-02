@@ -54,13 +54,13 @@ sonAprobadas jueces ley = (votosPositivos ley jueces) >= mayoria jueces
 
 votosPositivos :: Ley -> CorteSuprema -> Int
 votosPositivos ley jueces = length (filter (votar ley) jueces)
-
+    where votar ley juez = juez ley
 mayoria :: CorteSuprema -> Int
 mayoria jueces = length jueces `div` 2
-
+{-
 votar :: Ley -> Juez -> Bool
 votar ley juez = juez ley
-
+-}
 nuevaCorte = supremaCorte ++ nuevosJueces
 nuevosJueces = [juezPositivo, juezInventado, juezUltimo]
 
